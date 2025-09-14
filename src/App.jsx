@@ -8,7 +8,7 @@ import { login, logout } from "./store/authSlice";
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
   const navigate = useNavigate();
   const { userData } = useSelector((state) => state.auth);
 

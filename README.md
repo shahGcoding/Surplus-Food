@@ -1,12 +1,68 @@
-# React + Vite
+# SurplusFood
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web application built with React and Vite for managing surplus food and reducing food waste.
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Before you begin, ensure you have the following installed on your system:
+- [Node.js](https://nodejs.org/) 
+- [npm](https://www.npmjs.com/) (usually comes with Node.js)
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Follow these steps to get the project running on your local machine:
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/shahGcoding/Surplus-Food.git
+   cd Surplus-Food
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Setup Environment Variables**
+   - Create a `.env` file in the root directory
+   - Add necessary environment variables (if required)
+
+4. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+   The application will start running on `http://localhost:5173` (or another port if 5173 is occupied)
+
+## Available Scripts
+
+In the project directory, you can run:
+
+- `npm run dev` - Runs the app in development mode
+
+
+
+## Features
+
+- User Authentication (Login/Signup)
+- Admin Dashboard
+  - User Management
+  - Listing Management
+  - Complaint Handling
+  - Commission Management
+- Seller Dashboard
+  - Profile Management
+  - Listing Management
+  - Order Management
+  - Messaging System
+- Buyer Interface
+  - Order Management
+  - Complaint System
+  - Send Message
+
+## Technology Stack
+
+- React.js 
+- tailwind CSS
+- Node.js 
+- Atlas mongoDB
+

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { Button, Input } from "../index";
 import { forgotPassword } from "../../config/config";
@@ -55,10 +55,10 @@ function Forgot() {
 
           <Button
             type="submit"
-            className="w-full py-2 rounded-lg"
+            className="py-2 rounded-lg bg-green-700 hover:bg-green-500 hover:cursor-pointer"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Sending..." : "Send Reset Link"}
+            {isSubmitting ? "Submiting..." : "Submit"}
           </Button>
         </form>
 

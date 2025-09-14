@@ -85,7 +85,7 @@ function Home() {
       </div>
 
       {/* Search + Filter */}
-      <div className="flex items-start gap-4 ml-10 mt-4">
+      <div className="flex items-start gap-4 ml-10 mt-4 ">
         <SearchBar
           posts={posts}
           setSearchResults={setSearchResults}

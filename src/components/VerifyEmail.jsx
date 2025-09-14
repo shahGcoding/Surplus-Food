@@ -28,10 +28,6 @@ function VerifyEmail() {
   }
 };
 
-useEffect(() => {
-  alert("The OTP will expire within 5 minutes with this email !");
-}, [])
-
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">

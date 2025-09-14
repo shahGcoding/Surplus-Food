@@ -7,7 +7,7 @@ import App from "./App.jsx";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home.jsx";
+import Home from "./pages/Home.jsx"; 
 import { About, AuthLayout, Login } from "./components/index.js";
 import Signup from "./pages/Signup.jsx";
 import FAQs from "./components/Support/FAQs.jsx";
@@ -194,7 +194,7 @@ const router = createBrowserRouter([
       {
         path: "/seller-dashboard",
         element: <SellerDashboard />,
-      },
+      }, 
       {
         path: "/seller",
         element: (

@@ -31,7 +31,7 @@ function Signup() {
             businessName: data.businessName || "",
             businessAddress: data.businessAddress || "",
             phone: data.phone || "",
-            latitude: lat,
+            latitude: lat, 
             longitude: lng,
           });
 

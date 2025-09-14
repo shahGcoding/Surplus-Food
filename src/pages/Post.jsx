@@ -22,7 +22,7 @@ export default function Post() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const { userData, status: authStatus } = useSelector((state) => state.auth);
-  const token = useSelector((state) => state.auth.token); // assuming token is stored
+
 
   const canModify =
     userData?.role === "admin" ||
@@ -52,7 +52,7 @@ export default function Post() {
     } else {
       navigate("/");
     }
-  }, [slug, navigate, userData, deliveryMethod, token]);
+  }, [slug, navigate, userData, deliveryMethod]);
 
   // Delivery charge calculation
   const calculateDeliveryCharges = (sellerData) => {
@@ -187,7 +187,7 @@ export default function Post() {
         </div>
 
         {/* RIGHT: Post Info */}
-        <div className="md:w-1/2 w-full p-6 space-y-4">
+        <div className="md:w-1/2 w-full p-6 space-y-2">
           <h1 className="text-3xl font-bold">{post.title}</h1>
           <div>{parse(post.content)}</div>
           <p className="text-lg font-semibold text-green-700">
@@ -201,7 +201,7 @@ export default function Post() {
           {/* Buyer Only */}
           {userData?.role === "buyer" && (
             <>
-              <p>
+              <p className="text-blue-700">
                 Delivery Charges: Rs.{" "}
                 {deliveryMethod === "online-delivery" ? deliveryCharge : 0}
               </p>
@@ -229,10 +229,23 @@ export default function Post() {
                   }
                 }}
               />
+
+              <div className="p-4 bg-gray-300 rounded-lg shadow">
+                <h2 className="text-lg font-semibold mb-2">Seller Info:</h2>
+                <p>Name: {seller?.username || "N/A"}</p>
+                <p>Contact: {seller?.phone || "N/A"}</p>
+                <p>Address: {seller?.businessAddress || "N/A"}</p>
+              </div>  
+
+              <Select
+                options={["cash on delivery"]}
+                label="Payment Method:"
+                value="cash on delivery"
+              />
               <Button
                 onClick={handlePlaceOrder}
-                bgColor="bg-green-700"
                 disabled={placingOrder}
+                className="bg-green-700 hover:bg-green-500 hover:cursor-pointer"
               >
                 {placingOrder ? "Placing Order..." : "Place Order"}
               </Button>

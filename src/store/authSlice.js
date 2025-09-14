@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 const storedUser = JSON.parse(localStorage.getItem("user"));
 
 const initialState = {
@@ -21,14 +20,11 @@ const authSlice = createSlice({
         ...user,
         role: user.role || user.prefs?.role || null, // fallback if role missing
       };
-
       localStorage.setItem("user", JSON.stringify(state.userData));
-
     },
     logout: (state) => {
       state.status = false;
       state.userData = null;
-      
        localStorage.removeItem("user");
     },
   },
