@@ -2,13 +2,10 @@ import React, { useState } from "react";
 import { registerUser } from "../config/config.js";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Input, Logo, Select } from "./index";
-import { login } from "../store/authSlice.js";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
 
 function Signup() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [error, setError] = useState("");
   const [role, setRole] = useState("buyer");
 

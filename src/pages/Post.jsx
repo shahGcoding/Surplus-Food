@@ -9,6 +9,7 @@ import {
   placeOrder,
   getUserById, // temporary way to fetch seller
 } from "../config/config";
+import axios from "axios";
 
 export default function Post() {
   const [post, setPost] = useState(null);
@@ -18,11 +19,11 @@ export default function Post() {
   const [deliveryCharge, setDeliveryCharge] = useState(0);
   const [deliveryMethod, setDeliveryMethod] = useState("self-pickup");
   const [totalPrice, setTotalPrice] = useState(0);
+  const [paymentMethod, setPaymentMethod] = useState("cash on delivery");
 
   const { slug } = useParams();
   const navigate = useNavigate();
   const { userData, status: authStatus } = useSelector((state) => state.auth);
-
 
   const canModify =
     userData?.role === "admin" ||
@@ -121,6 +122,21 @@ export default function Post() {
     }
   };
 
+  const payNow = async (item) => {
+    try {
+      const res = await axios.post(
+        "http://localhost:8000/api/v1/payments/create-checkout-session",
+        { item },
+        { withCredentials: true }
+      );
+      if (res.data.url) {
+        window.location.href = res.data.url;
+      }
+    } catch (error) {
+      console.error("Payment error", error);
+    }
+  };
+
   // Place Order
   const handlePlaceOrder = async () => {
     if (!userData || userData.role !== "buyer") {
@@ -131,6 +147,25 @@ export default function Post() {
     if (deliveryMethod === "online-delivery" && deliveryCharge == null) {
       alert("Unable to calculate delivery charges.");
       return;
+    }
+
+    if (paymentMethod === "online payment") {
+      // Generate Stripe checkout session
+      const item = {
+        title: post.title,
+        image: post.featuredImage,
+        price: totalPrice, // total including delivery
+        totalPrice: totalPrice,
+
+        foodId: post._id,
+        sellerId: post.userId._id,
+        buyerId: userData._id,
+
+        quantity: selectedQuantity,
+        deliveryMethod,
+        deliveryCharge,
+      };
+      return payNow(item);
     }
 
     setPlacingOrder(true);
@@ -235,12 +270,13 @@ export default function Post() {
                 <p>Name: {seller?.username || "N/A"}</p>
                 <p>Contact: {seller?.phone || "N/A"}</p>
                 <p>Address: {seller?.businessAddress || "N/A"}</p>
-              </div>  
+              </div>
 
               <Select
-                options={["cash on delivery"]}
+                options={["cash on delivery", "online payment"]}
                 label="Payment Method:"
-                value="cash on delivery"
+                value={paymentMethod}
+                onChange={(e) => setPaymentMethod(e.target.value)}
               />
               <Button
                 onClick={handlePlaceOrder}

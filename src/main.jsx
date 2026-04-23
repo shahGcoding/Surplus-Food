@@ -40,6 +40,7 @@ import AdminComission from "./components/AdminDash/AdminComission.jsx";
 import VerifyEmail from "./components/VerifyEmail.jsx";
 import Forgot from "./components/forgotPassword/Forgot.jsx";
 import Reset from "./components/forgotPassword/Reset.jsx";
+import PaymentSuccess from "./components/stripe/paymentSuccess.jsx";
 
 const router = createBrowserRouter([
   {
@@ -142,6 +143,14 @@ const router = createBrowserRouter([
             <Licensing />
           </AuthLayout>
         )
+      },
+      {
+        path: "/payment-success",
+        element: (
+          <AuthLayout authentication={true}>
+            <PaymentSuccess />
+          </AuthLayout>
+        ),
       },
       {
         path: "/buyer/buyercomplaint",

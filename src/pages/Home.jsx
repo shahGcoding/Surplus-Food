@@ -3,7 +3,7 @@ import { getAllFoodPosts, getFilteredFoodPosts } from "../config/config";
 import { useSelector } from "react-redux";
 import {
   Container,
-  PostCard,
+  PostCard, 
   SearchBar,
   Filter,
   Testimonial,

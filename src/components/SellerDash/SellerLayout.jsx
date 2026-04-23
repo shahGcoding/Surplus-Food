@@ -88,7 +88,7 @@ const SellerLayout = () => {
   }
 
 
-  return (
+  return ( 
     <div className="flex h-screen">
       {/* Sidebar */}
       <aside className="w-64 bg-green-50 border-r border-green-200 p-5 shadow-md">

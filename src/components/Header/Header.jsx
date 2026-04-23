@@ -34,7 +34,7 @@ function Header() {
           {/* Desktop Nav */}
           <ul className="hidden md:flex space-x-4">
             {navItems.map((item) =>
-              item.active ? (
+              item.active ? ( 
                 <li key={item.name}>
                   <button
                     onClick={(e) => {
