@@ -1,7 +1,10 @@
 import axios from "axios";
 
 const API = axios.create({ baseURL: "https://surplusfood.onrender.com/api/v1", withCredentials: true });
+<<<<<<< HEAD
 
+=======
+>>>>>>> c9e9303ae466d0a7916a7ab4b16ea9a8e02bb0c5
 
 // USER APIs........
 

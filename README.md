@@ -63,6 +63,5 @@ In the project directory, you can run:
 
 - React.js 
 - tailwind CSS
-- Node.js 
-- Atlas mongoDB
+- redux toolkit
 
