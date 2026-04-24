@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "https://surplusfood.onrender.com", withCredentials: true });
+const API = axios.create({ baseURL: "https://surplusfood.onrender.com/api", withCredentials: true });
 
 // USER APIs........
 
