@@ -63,7 +63,7 @@ function Home() {
       {/* Hero Section */}
       <div className="relative w-full mb-4 h-[720px]">
         <img
-          src="/public/hero.jpg"
+          src="/hero.jpg"
           alt="Food"
           className="w-full h-full object-cover rounded-lg"
         />
